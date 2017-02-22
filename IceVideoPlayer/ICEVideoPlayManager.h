@@ -6,9 +6,7 @@
 //  Copyright © 2017年 icemanXiceman. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@class AVPlayerLayer;
+#import <AVFoundation/AVFoundation.h>
 
 typedef enum : NSUInteger {
     ICEVideoStatusInit = 0,
@@ -24,7 +22,7 @@ typedef enum : NSUInteger {
 @property (nonatomic ,readonly) NSTimeInterval availableTime;
 @property (nonatomic ,readonly) NSTimeInterval totalTime;
 @property (nonatomic ,readonly) NSTimeInterval currentTime;
-@property (nonatomic ,assign) ICEVideoStatus videoStatus;
+@property (nonatomic ,readonly) ICEVideoStatus videoStatus;
 
 
 /*
@@ -33,14 +31,19 @@ typedef enum : NSUInteger {
 
 
 /*
-    no matter if already play,the method will refresh status and player
  */
 - (void)play;
 
+/*
+ */
 - (void)pause;
 
-- (void)addDisplayView:(AVPlayerLayer *)layer;
+/*
+ */
+- (void)addVideoViewTo:(AVPlayerLayer *)layer;
 
+/*
+ */
 - (void)seek:(NSTimeInterval)time;
 
 @end
