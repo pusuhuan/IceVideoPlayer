@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"http://vid.music.joox.com/video.music.joox.com/1035_4baf5abe560e11e581e6d4ae5278cc05.f10.mp4?vkey=8CE1201BC339BC2D275B691B7A233BB1259A483AFF912B52E156088C93E8E5CC11F16D1C68A59096CA59F7F6742F18B221BEA8441596FEAF1629879AF7A3D7AB9A2533F33870DA541C69205B35C85"];
+    NSURL *url = [NSURL URLWithString:@"http://103.7.28.28/video.music.joox.com/1035_24586c30f42d11e6bcc2d4ae5278cc05.f0.mp4?vkey=136FF1E8070BAAB3236F933AAEA8E118A168015E3E9EBBF6B1E7B6DC22235CD287A76D601E2560C749CD4F23811B78F69F57218B493775C9A6871B176ACEDEA076AEBCB593461E5E46CDE677F3928EF0DF4EF804EB522AB0"];
     
     _videoManager = [ICEVideoPlayManager shareVideoDataManager];
     _videoManager.videoURL = url;
@@ -47,7 +47,7 @@
     _aviLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 500, 100, 100)];
     [self.view addSubview:_aviLabel];
     
-    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(refresh) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(refresh) userInfo:nil repeats:YES];
     
 }
 
@@ -65,6 +65,7 @@
 {
     self.totalLabel.text = [NSString stringWithFormat:@"总时间%.0f",_videoManager.totalTime];
     self.currentLabel.text = [NSString stringWithFormat:@"当前时间%.0f",_videoManager.currentTime];
+    NSLog(@"%@",self.currentLabel.text);
     self.aviLabel.text = [NSString stringWithFormat:@"缓冲时间%.0f",_videoManager.availableTime];
 }
 
